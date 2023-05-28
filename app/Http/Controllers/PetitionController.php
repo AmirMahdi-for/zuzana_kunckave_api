@@ -25,9 +25,9 @@ class PetitionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        
     }
 
     /**
@@ -38,7 +38,7 @@ class PetitionController extends Controller
      */
     public function show(Petition $petition)
     {
-        //
+        return new PetitionResource($petition);
     }
 
     /**
