@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PetitionCollection;
 use App\Http\Resources\PetitionResource;
 use App\Models\Petition;
+use App\Http\Controllers\Response;
 use Illuminate\Http\Request;
 
 class PetitionController extends Controller
@@ -16,7 +17,7 @@ class PetitionController extends Controller
      */
     public function index()
     {
-        return new PetitionCollection(Petition::all());
+        return response()->json(new PetitionCollection(Petition::all()), 200);
     }
 
     /**
@@ -69,6 +70,8 @@ class PetitionController extends Controller
      */
     public function destroy(Petition $petition)
     {
-        //
+        $petition->delete();
+
+        return response()->json(null, );204
     }
 }
